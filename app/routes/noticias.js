@@ -6,9 +6,6 @@ module.exports = function(app) {
 
         noticiasModel.getNoticias(connection,(error, result) => {
             res.render('noticias/noticias', {noticias: result});
-        });
-        
-        
-        
+        });        
     });
 }
