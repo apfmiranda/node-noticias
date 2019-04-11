@@ -16,7 +16,7 @@ function configApp() {
     consign()
     .include('app/routes')
     .then('config/dbConnection.js')
-    .then('app/models')    
+    .then('app/models')
     .into(app);
 
     return app;    

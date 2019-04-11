@@ -6,8 +6,8 @@ module.exports = function(app) {
     app.post('/noticias/salvar',(req, res) =>{
         var noticia =  req.body;
 
-        var connection = app.config.dbConnection();
-        var noticiasModel = app.app.models.noticiasModel;
+        var connection = app.config.dbConnection.getPool();
+        var noticiasModel =  app.app.models.NoticiasModel;
 
         noticiasModel.salvarNoticia(noticia, connection,(error, result) => {
             res.redirect('/noticias');

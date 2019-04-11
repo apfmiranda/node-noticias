@@ -1,4 +1,5 @@
 class NoticiasModel {
+
     getNoticias(connection, callBack) {
         connection.query('select * from noticias', callBack);
     };
