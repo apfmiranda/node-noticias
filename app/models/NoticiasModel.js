@@ -2,6 +2,10 @@ var logger = require('../util/logger').getInstance();
 
 class NoticiasModel {
 
+    getLastNoticias(connection, qtdNoticias, callBack){
+        connection.query('SELECT * FROM noticias order by data_criacao desc limit ' + qtdNoticias, callBack);
+    }
+
     getNoticias(connection, callBack) {
         connection.query('select * from noticias', callBack);
     };
