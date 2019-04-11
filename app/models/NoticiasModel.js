@@ -11,7 +11,7 @@ class NoticiasModel {
     };
 
     getNoticia(connection, callBack) {
-        connection.query('select * from noticias where id_noticia = 1', callBack);
+        connection.query('select * from noticias where id_noticia = 14', callBack);
     };
 
     salvarNoticia(noticia, connection, callBack) {
