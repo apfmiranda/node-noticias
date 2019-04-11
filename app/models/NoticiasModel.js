@@ -10,12 +10,11 @@ class NoticiasModel {
         connection.query('select * from noticias order by data_criacao desc', callBack);
     };
 
-    getNoticia(connection, callBack) {
-        connection.query('select * from noticias where id_noticia = 14', callBack);
+    getNoticia(id,connection, callBack) {
+        connection.query('select * from noticias where id_noticia = '+ id.id_noticia, callBack);
     };
 
     salvarNoticia(noticia, connection, callBack) {
-        logger.log(noticia.body);
         connection.query('insert into noticias set ?', noticia, callBack);
     };
 }

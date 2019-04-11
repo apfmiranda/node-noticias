@@ -1,9 +1,10 @@
 module.exports.noticia = function(app, req, res){
     var connection = app.config.dbConnection.getPool();
     var noticiasModel = app.app.models.NoticiasModel;
+
+    var id_noticia = req.query;
     
-    noticiasModel.getNoticia(connection,(error, result) => {
-        console.log(result);
+    noticiasModel.getNoticia(id_noticia, connection,(error, result) => {
         res.render('noticias/noticia', {noticia: result});
     })
 }
