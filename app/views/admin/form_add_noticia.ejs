@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Formulário de cadastro de Notícia</title>
-		</head>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Formulário de cadastro de Notícia</title>
+	</head>
 	<body>
 
 		<h1>Adicionar notícia</h1>
 		<br/>
+
+		<% if (locals.validacoes) { %>
+			<ul>
+				<% validacoes.forEach((validacao)=> { %>
+					<li><%= validacao.msg %></li>
+				<% }) %>
+			</ul>			
+		<% } %>
 		<form action="/noticias/salvar" method="POST"> 
 			<label for="titulo">Titulo</label>
 			<input id="titulo" type="text" name="titulo" placeholder="Titulo da Notícia"/>

@@ -10,13 +10,13 @@ module.exports = function(app) {
         req.assert('resumo', 'Resumo é obrigatório!').notEmpty();
         req.assert('resumo', 'Resumo deve conter entre 10 e 100 caracteres!').len(10,100);
         req.assert('autor', 'Autor é obrigatório!').notEmpty();
-        req.assert('data_noticia', 'Data dos fatos é obrigatória!').notEmpty().isDate({format: 'YYYY-MM-DD'});
+        req.assert('data_noticia', 'Data dos fatos é obrigatória!').notEmpty();
         req.assert('noticia', 'Noticia é obrigatória!').notEmpty();
 
-        var error = req.validationErrors();
+        var erros = req.validationErrors();
 
-        if (error) {
-            res.render('admin/form_add_noticia');
+        if (erros) {
+            res.render('admin/form_add_noticia', {validacoes: erros});
             return;
         }
 
