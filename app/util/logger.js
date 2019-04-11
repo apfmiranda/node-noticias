@@ -45,21 +45,31 @@ class Logger {
 
 }
 
-class Singleton {
+// class Singleton {
 
-    constructor() {
-        if (Singleton.instance === undefined) {
-            Singleton.instance = new Logger();
-        }
-    }
+//     constructor() {
+//         if (Singleton.instance === undefined) {
+//             Singleton.instance = new Logger();
+//         }
+//     }
   
-    getInstance() {
-        return Singleton.instance;
-    }
+//     getInstance() {
+//         return Singleton.instance;
+//     }
   
-  }
+//   }
 
-var loggerSingleton = new Singleton();
+// var loggerSingleton = new Singleton();
 
 
-module.exports = loggerSingleton.getInstance();
+//module.exports = loggerSingleton.getInstance();
+
+var loggerSingleton;
+module.exports = {
+    getInstance: function () {
+      if (loggerSingleton) return loggerSingleton;
+      
+      loggerSingleton = new Logger();
+      return loggerSingleton;
+    }
+}

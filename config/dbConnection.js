@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var logger = require('../app/util/logger');
+var logger = require('../app/util/logger').getInstance();
 var qtdConnections = 0;
 
 var pool;

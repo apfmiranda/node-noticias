@@ -1,3 +1,5 @@
+var logger = require('../util/logger').getInstance();
+
 class NoticiasModel {
 
     getNoticias(connection, callBack) {
@@ -9,6 +11,7 @@ class NoticiasModel {
     };
 
     salvarNoticia(noticia, connection, callBack) {
+        logger.log(noticia.body);
         connection.query('insert into noticias set ?', noticia, callBack);
     };
 }
