@@ -7,7 +7,7 @@ class NoticiasModel {
     }
 
     getNoticias(connection, callBack) {
-        connection.query('select * from noticias', callBack);
+        connection.query('select * from noticias order by data_criacao desc', callBack);
     };
 
     getNoticia(connection, callBack) {
